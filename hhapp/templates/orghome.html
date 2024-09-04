@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'orghome.css' %}" />
+</head>
+<body>
+    <div class="main-container">
+        <div class="navigation">
+            <span class="holding-hands">Holding Hands</span>
+            <div class="items">
+                <a href="/viewd/" class="button">View</a>
+                <a href="/" class="button">Logout</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="flex-row">
+                <div class="image-container">
+                    <img class="image" src="{% static 'kidimg.jpeg' %}" alt="Profile Picture">
+                </div>
+                <div class="regroup">
+                    <a href="/itemsreq/" class="button-1">Donation Required</a>
+                    <a href="/volunteerreq/" class="button-2">Volunteer Required</a>
+                </div>
+                <div class="details">
+                    <span class="product-name">{{ donee.name }}</span>
+                    <span class="subheading">{{ donee.email }}<br/>{{ donee.phone_number }}<br/>{{ donee.address }}</span>
+                </div>
+            </div>
+            <div class="events-needs-container">
+                <div class="events-section">
+                    <span class="section-title">Upcoming Events</span>
+                    <div class="card-list">
+                        {% for event in events %}
+                            <div class="card">
+                                <span class="event-name">{{ event.name }}</span>
+                                <span class="description">{{ event.description }}</span>
+                                <span class="event-date">{{ event.date }}</span>
+                                <span class="event-venue">{{ event.venue }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="needs-section">
+                    <span class="section-title">Needs Posted</span>
+                    <div class="card-list">
+                        {% for need in needs %}
+                            <div class="card">
+                                <span class="need-name">{{ need.name }}</span>
+                                <span class="description">{{ need.description }}</span>
+                                <span class="need-count">{{ need.count }}</span>
+                                <span class="need-status">{{ need.status }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="divider"></div>
+            <span class="holding-hands-f">Holding Hands</span>
+            <div class="project-info">
+                <span class="location-info">Kasaragod, Kerala, India</span>
+                <span class="email-info">projectholdinghands@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="icon"></div>
+                <div class="icon"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

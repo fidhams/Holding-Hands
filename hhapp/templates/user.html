@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" />
+    <link rel="stylesheet" href="{% static 'user.css' %}" />
+  </head>
+  <body>
+    <div class="landing-page-01">
+      <div class="navigation">
+        <span class="holding-hands">Holding Hands</span>
+        <div class="items">
+          <a href="/" class="home">Home</a>
+          <div class="button-1">
+            <a href="/" class="logout">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        {% comment %} <label for="file-upload" class="graphic" id="graphic">Upload Image here</label> {% endcomment %}
+        <img class="iconn" src="{% static 'pfp.jpg' %}" alt="pfp">
+        {% comment %} <input type="file" id="file-upload" style="display: none;"> {% endcomment %}
+        <div class="frame-1321316142">
+          <div class="user-name">{{ donor.name }}</div>
+          <span class="email">{{ donor.email }}</span>
+        </div>
+      </div>
+      <div class="heading">
+        <span class="my-items">My items</span>
+      </div>
+      <div class="cards">
+        <div class="customer-quote">
+          <div class="button-2">
+            <a href="/userdonate/" class="container-1"> + </a>
+          </div>
+        </div>
+        {% for donation in donations %}
+        <div class="customer-quote-5">
+          <div class="avatar-4">
+            <img class="avatar" src="{{ donation.image.url }}" alt="Avatar">
+            <div class="frame-2610301">
+              <div class="name-2">{{ donation.name }}</div>
+              <span class="description-4">{{ donation.category }} - {{ donation.count }}</span>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="heading-1">
+        <span class="volunteer">Volunteer</span>
+      </div>
+      <div class="cards-1">
+        <div class="customer-quote-2">
+          <div class="button">
+            <a href="/uservolunteer/" class="container"> + </a>
+          </div>
+        </div>
+        {% for volunteer in volunteers %}
+        <div class="customer-quote-3">
+          {% comment %} <img class="avatar-2" src="../assets/vectors/avatar_2_x2.svg" id="uploaded-image" /> {% endcomment %}
+          <div class="frame-26103012">
+            <div class="category">{{ volunteer.volunteer_category }}</div>
+            <span class="description-2">{{ volunteer.volunteer_details }}</span>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById('file-upload').addEventListener('change', function() {
+        var file = this.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('graphic').style.backgroundImage = 'url(' + event.target.result + ')';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+  </script>
+</html>

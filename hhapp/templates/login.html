@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="{% static 'login.css' %}" />
+    <style>
+      .popup-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        z-index: 1000;
+      }
+      .popup-message.success {
+        background: #d4edda;
+        color: #155724;
+        border-color: #c3e6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="frame">
+        <div class="copy"><span class="login-1">Login</span></div>
+      </div>
+      <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="messages">
+          {% if messages %}
+            <ul style="display: none;" id="message-list">
+              {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+        <div class="frame-2">
+          <span class="user-name">Email</span>
+          <div class="field">
+            <input class="field-input" type="email" name="email" placeholder="Enter your email" required />
+          </div>
+        </div>
+        <div class="frame-3">
+          <span class="password-input"> Password</span>
+          <div class="field-4">
+            <input class="field-input-5" type="password" name="password" placeholder="Enter your password" required />
+          </div>
+        </div>
+        <button type="submit" class="button"><span class="login-6">Login</span></button>
+      </form>
+    </div>
+    <div id="popup-message" class="popup-message"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var messageList = document.getElementById('message-list');
+        if (messageList) {
+          var messages = messageList.getElementsByTagName('li');
+          if (messages.length > 0) {
+            var messageContent = messages[0].innerText;
+            var messageClass = messages[0].className;
+            var popup = document.getElementById('popup-message');
+            popup.innerText = messageContent;
+            popup.classList.add(messageClass);
+            popup.style.display = 'block';
+            setTimeout(function() {
+              popup.style.display = 'none';
+            }, 5000);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

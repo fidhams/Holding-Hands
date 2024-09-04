@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="{% static 'uservolunteer.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="form">
+        <form method="post" action="{% url 'uservolunteer' %}">
+          {% csrf_token %}
+          <div class="input">
+            <input type="hidden" name="email" value="{{ donor.email }}" />
+            <label for="Category" class="name">Category</label>
+            <select id="Category" name="category" class="dropdown-select" required>
+              <option value="" disabled selected>Category</option>
+              <option value="Companionship and Support">Companionship and Support</option>
+              <option value="Mentoring and Tutoring">Mentoring and Tutoring</option>
+              <option value="Activities or Event Management">Activities or Event Management</option>
+              <option value="Health and Wellness Support">Health and Wellness Support</option>
+              <option value="Advocacy and Outreach">Advocacy and Outreach</option>
+              <option value="Special Projects">Special Projects</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+          <div class="input-1">
+            <span class="description">Description</span>
+            <textarea class="label-2" id="description" name="description" placeholder="Enter your question or message" required></textarea>
+          </div>
+          <button type="submit" class="button"><span class="add">Add</span></button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

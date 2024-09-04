@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+</head>
+<body>
+    <div class="main-container">
+        <div class="navigation">
+            <span class="holding-hands">Holding Hands</span>
+            <div class="items">
+                <a href="#header-with-image" class="home-1">Home</a>
+                <a href="#header-with-image-2d" class="about-us">About us</a>
+                <a href="/contactus/" class="contact-us">Contact us</a>
+                <button class="button">
+                    <a href="/signup/" class="login-sign-up">Login/Sign up</a>
+                </button>
+            </div>
+        </div>
+        <div class="header-with-image" id="header-with-image">
+            <img src="{% static 'headd.jpeg' %}" alt="Avatar" style="width:100%">
+            <div class="copy">
+                <span class="holding-hands-2">Holding Hands</span>
+                <div class="overlay">
+                    <span class="subheading-description">Join us in Making a Difference</span>
+                    <button class="button-3">
+                        <a href="/signup/" class="donate-now">Donate now</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <span class="whats-happening">See what's happening around you</span>
+        <div class="card-grid">
+            {% for event in events %}
+            <div class="card">
+                <div class="image" style="background-image: url('{% static 'kidimg.jpeg' %}');"></div>
+                <div class="copy-4">
+                    <span class="event-name"><strong>{{ event.name }}</strong></span>
+                    <span class="description">{{ event.description }}</span>
+                    <span class="event-date">{{ event.date }}</span>
+                    <span class="event-venue">{{ event.venue }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div id="header-with-image-2d" class="header-with-image-2d">
+            <div class="copy-2e">
+                <span class="holding-hands-2f">Holding Hands</span>
+                <div class="our-platform-connects-donors">
+                    Our platform connects donors with orphanages, old age homes, and similar organizations. We're committed to transparency and efficiency, ensuring every donation, big or small, makes a meaningful impact. Join us in fostering a culture of compassion and support, where no one is left behind. Together, let's transform lives, one donation at a time.
+                </div>
+            </div>
+            <img src="{% static 'foott.jpeg' %}" alt="holding-hands">
+        </div>
+        <div class="navigation-footer">
+            <div class="divider"></div>
+            <span class="holding-hands-31">Holding Hands</span>
+            <div class="kasaragod-kerala-india">
+                <span class="kasaragod-kerala-india-32">Kasaragod, Kerala, India<br /></span>
+                <span class="project-holding-hands">projectholdinghands@gmail.com</span>
+            </div>
+            <div class="social-icons">
+                <div class="buttons-icon">
+                    <div class="icon"><div class="icon-33"></div></div>
+                </div>
+                <div class="buttons-icon-34">
+                    <div class="icon-35"><div class="icon-36"></div></div>
+                </div>
+                <div class="buttons-icon-37">
+                    <div class="icon-38"><div class="icon-39"></div></div>
+                </div>
+                <div class="buttons-icon-3a">
+                    <div class="icon-3b"><div class="icon-3c"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById("about-us").addEventListener("click", function() {
+            document.getElementById("header-with-image-2d").scrollIntoView();
+        });
+    </script>
+</body>
+</html>

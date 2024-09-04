@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" />
+    <link rel="stylesheet" href="{% static 'signup.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="navigation">
+        <span class="holding-hands">Holding Hands</span>
+        <div class="mobile-app-header">
+          <div class="icon-chevron-left">
+            <div class="chevron-left-thin"></div>
+          </div>
+          <a href="/" class="home">Home</a>
+        </div>
+      </div>
+      <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="frame">
+          <span class="full-name">Full Name</span>
+        </div>
+        <div class="field">
+          <input class="field-input" type="text" name="name" placeholder="Enter your Full name" required />
+        </div>
+        <div class="frame-1">
+          <span class="age">Date of Birth</span>
+        </div>
+        <div class="field-2">
+          <input class="field-input-3" type="date" name="dob" placeholder="Enter your Date of Birth" required />
+        </div>
+        <div class="div-frame">
+          <span class="address">Address</span>
+        </div>
+        <div class="div-field">
+          <input class="input-field" type="text" name="address" placeholder="Enter your Address" required />
+        </div>
+        <div class="div-frame-5">
+          <span class="email">Email</span>
+        </div>
+        <div class="field-6">
+          <input class="field-input-7" type="email" name="email" placeholder="Enter your Email" required />
+        </div>
+        <div class="frame-9">
+          <span class="phone-number">Phone Number</span>
+        </div>
+        <div class="field-a">
+          <input class="field-input-b" type="text" name="phone_number" placeholder="Enter your Phone Number" required />
+        </div>
+        <div class="frame-9">
+          <span class="password">Password</span>
+        </div>
+        <div class="field-a">
+          <input class="field-input-b" type="password" name="password" placeholder="Enter your Password" required />
+        </div>
+        <div class="frame-9">
+          <span class="gender">Gender</span>
+        </div>
+        <div class="field-a">
+          <select class="field-input-b" name="gender" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+        </div>
+        <div class="flex-row-dab">
+          <span class="already-have-account">Already have an account?</span><a href="/login/" class="login">Login</a>
+        </div>
+        <button class="button" type="submit">Submit</button>
+        <div class="divider">
+          <div class="rectangle"></div>
+          <span class="or-organisation-login">or Organisation Sign Up</span>
+          <div class="rectangle-d"></div>
+        </div>
+        <button class="button"><a href="/orgsignup/" class="submit">Organisation Sign Up</a></button>
+      </form>
+    </div>
+  </body>
+</html>

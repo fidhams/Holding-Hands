@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" />
+    <link rel="stylesheet" href="{% static 'userdonate.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="form">
+        <form method="post" action="{% url 'userdonate' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input">
+            <input type="hidden" name="email" value="{{ donor.email }}" />
+            <span class="name">Name</span>
+            <div class="field">
+              <input class="field-input" type="text" name="name" placeholder="Enter Item Name" required />
+            </div>
+            <label for="Category" class="name">Category</label>
+            <select id="Category" name="category" class="dropdown-select" required>
+              <option value="" disabled selected>Category</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Hygiene Products">Hygiene Products</option>
+              <option value="School Supplies">School Supplies</option>
+              <option value="Household items">Household items</option>
+              <option value="Medical Supplies">Medical Supplies</option>
+              <option value="Toys and Games">Toys and Games</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Furnitures">Furnitures</option>
+              <option value="Books and Magazines">Books and Magazines</option>
+              <option value="Others">Others</option>
+            </select>
+            <div class="input-container">
+              <label for="Count" class="name">Count</label>
+              <input type="number" id="Count" name="count" class="input-field" placeholder="Enter Count" required />
+            </div>
+            <input type="file" accept="image/*" id="upload" name="image" style="display: none;" required>
+            <label for="upload" class="custom-file-upload">
+              <span class="add-image">Add image</span>
+            </label>
+            <div id="preview"></div>
+            <button type="submit" class="button"><span class="add">Submit</span></button>
+            <div class="chevron-down"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.getElementById("upload").onchange = function(e) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+        var img = document.createElement("img");
+        img.src = event.target.result;
+        img.id = "uploaded-image";
+        document.getElementById("preview").innerHTML = '';
+        document.getElementById("preview").appendChild(img);
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    };
+  </script>
+</html>

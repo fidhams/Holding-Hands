@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOLDINGHANDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One:wght@400&display=swap" />
+    <link rel="stylesheet" href="{% static 'volunteerreq.css' %}" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="navigation">
+        <span class="holding-hands">Holding Hands</span>
+        <div class="mobile-app-header">
+          <div class="icon-chevron-left">
+            <div class="chevron-left-thin"></div>
+          </div>
+          <a href="/orghome/" class="home">Home</a>
+        </div>
+      </div>
+      <div class="copy"><span class="volunteer-required">Event Required</span></div>
+      <form method="post" action="{% url 'volunteerreq' %}">
+        {% csrf_token %}
+        <input type="hidden" name="email" value="{{ donee.email }}" />
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <label for="Category" class="dropdown-label">Category</label>
+            <select id="Category" name="category" class="dropdown-select">
+              <option value="Companionship and support">Companionship and support</option>
+              <option value="Mentoring and Tutoring">Mentoring and Tutoring</option>
+              <option value="Activities or event management">Activities or event management</option>
+              <option value="Health and Wellness support">Health and Wellness support</option>
+              <option value="Advocacy and outreach">Advocacy and outreach</option>
+              <option value="Special Projects">Special Projects</option>
+              <option value="Others">Others</option>
+            </select>
+            <div class="chevron-down"></div>
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="EventName" class="label">Event Name</label>
+          <input type="text" id="EventName" name="name" class="input-field" required>
+        </div>
+        <div class="input-container">
+          <label for="Description" class="label">Description</label>
+          <input type="text" id="Description" name="description" class="input-field">
+        </div>
+        <div class="input-container">
+          <label for="Venue" class="label">Venue</label>
+          <input type="text" id="Venue" name="venue" class="input-field">
+        </div>
+        <div class="input-container">
+          <label for="Date" class="label">Date</label>
+          <input type="date" id="Date" name="date" class="input-field" required>
+        </div>
+        <button type="submit" class="primary-button"><span class="add">Add</span></button>
+      </form>
+      <div class="navigation-footer">
+        <div class="divider"></div>
+        <span class="holding-hands-31">Holding Hands</span>
+        <div class="kasaragod-kerala-india">
+          <span class="kasaragod-kerala-india-32">Kasaragod, Kerala, India<br /></span>
+          <span class="project-holding-hands">projectholdinghands@gmail.com</span>
+        </div>
+        <div class="social-icons">
+          <div class="buttons-icon">
+            <div class="icon"><div class="icon-33"></div></div>
+          </div>
+          <div class="buttons-icon-34">
+            <div class="icon-35"><div class="icon-36"></div></div>
+          </div>
+          <div class="buttons-icon-37">
+            <div class="icon-38"><div class="icon-39"></div></div>
+          </div>
+          <div class="buttons-icon-3a">
+            <div class="icon-3b"><div class="icon-3c"></div></div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </body>
+</html>

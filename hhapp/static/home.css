@@ -1,0 +1,238 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.holding-hands {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 24px;
+}
+
+.items {
+  display: flex;
+  gap: 15px;
+}
+
+.button {
+  background-color: #2980b9;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.button:hover {
+  background-color: #3498db;
+}
+
+.header-with-image {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.header-with-image img {
+  width: 100%;
+  height: auto;
+}
+
+.copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.holding-hands-2 {
+  font-size: 48px;
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.overlay {
+  margin-top: 20px;
+}
+
+.subheading-description {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button-3 {
+  background-color: #e74c3c;
+  color: #ecf0f1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button-3:hover {
+  background-color: #c0392b;
+}
+
+.whats-happening {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px);
+}
+
+.card .image {
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card .event-name, .card .description, .card .event-date, .card .event-venue {
+  display: block;
+}
+
+.card .event-name {
+  font-size: 18px;
+  font-weight: 700; /* Increased font weight for boldness */
+}
+
+.card .description {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+.card .event-date, .card .event-venue {
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+.header-with-image-2d {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.header-with-image-2d img {
+  width: 50%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.copy-2e {
+  flex: 1;
+  text-align: left;
+}
+
+.holding-hands-2f {
+  font-size: 36px;
+  font-family: 'Julius Sans One', sans-serif;
+  margin-bottom: 20px;
+}
+
+.our-platform-connects-donors {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+.navigation-footer {
+  padding: 20px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  text-align: center;
+}
+
+.divider {
+  height: 1px;
+  background-color: #34495e;
+  margin-bottom: 20px;
+}
+
+.holding-hands-31 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.kasaragod-kerala-india {
+  margin-bottom: 20px;
+}
+
+.kasaragod-kerala-india-32 {
+  display: block;
+}
+
+.project-holding-hands {
+  display: block;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttons-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #2980b9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  background-color: #ecf0f1;
+  border-radius: 50%;
+}
+
+.buttons-icon-34 .icon-35 .icon-36,
+.buttons-icon-37 .icon-38 .icon-39,
+.buttons-icon-3a .icon-3b .icon-3c {
+  width: 20px;
+  height: 20px;
+  background-color: #ecf0f1;
+  border-radius: 50%;
+}
+
+.event-name{
+  font-weight: bolder;
+}
